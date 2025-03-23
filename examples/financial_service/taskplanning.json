@@ -1,0 +1,72 @@
+[
+    {
+        "task_name": "Provide real-time updates on financial trends",
+        "steps": [
+            "Inquire about the specific financial trends or market sectors the user is interested in (e.g., stocks, bonds, commodities).",
+            "Gather real-time data on the specified trends or sectors using the SearchWorker to provide the latest updates.",
+            "Present the user with the current market insights, including top-performing and poorly performing stocks, as well as any notable trends.",
+            "Ask the user if they would like more detailed information on a specific stock or sector or any additional insights.",
+            "Confirm if the user needs further assistance, such as advice on investments or understanding market implications."
+        ]
+    },
+    {
+        "task_name": "Provide analysis on stocks performing well or poorly",
+        "steps": [
+            "Inquire about the specific stock or sector the user is interested in, or ask if they would like a general overview of current market trends.",
+            "Based on the user's response, use the SearchWorker to gather real-time information about stocks that are currently performing well or poorly.",
+            "Present the user with the findings, including details on the top performing stocks and those that are underperforming, along with key metrics.",
+            "Ask the user if they would like more detailed analysis on any specific stocks or sectors mentioned in the previous step.",
+            "Provide additional insights or analysis based on the user's request, such as historical performance, market trends, or expert opinions."
+        ]
+    },
+    {
+        "task_name": "Share daily top stock picks and lowlights",
+        "steps": [
+            "Inquire the user if they are looking for specific stock picks or general market trends.",
+            "Retrieve the latest data on top-performing and underperforming stocks based on the user's interest.",
+            "Share the daily top stock picks and lowlights with the user.",
+            "Ask if the user would like additional information on any specific stocks or sectors.",
+            "Provide further insights or analytics on the selected stocks if the user expresses interest."
+        ]
+    },
+    {
+        "task_name": "Deliver insights on market movers and economic indicators",
+        "steps": [
+            "Inquire about the specific market movers or economic indicators the user is interested in (e.g., specific sectors, stocks, or economic reports).",
+            "Utilize the SearchWorker to retrieve the latest information on the specified market movers or economic indicators based on the user's request.",
+            "Present the user with the retrieved insights, highlighting key market movers and relevant economic indicators.",
+            "Ask the user if they require additional information on any specific stocks or indicators mentioned.",
+            "Confirm if the user would like to explore further or if they have any other financial queries."
+        ]
+    },
+    {
+        "task_name": "Provide detailed information about specific stock queries",
+        "steps": [
+            "Ask the user to specify which stock they are inquiring about or provide a general area of interest within the stock market.",
+            "Retrieve current market insights and performance data for the specified stock using the SearchWorker.",
+            "Provide the user with detailed information about the stock's performance, including current price, trends, and any notable news or events affecting it.",
+            "Ask the user if they would like additional information, such as comparisons to other stocks or insights on market trends.",
+            "Confirm the user's satisfaction with the information provided and offer assistance with any further inquiries or actions, such as investment advice or portfolio management."
+        ]
+    },
+    {
+        "task_name": "Explain how tariffs impact the market and specific sectors",
+        "steps": [
+            "Begin by asking the user if they have a specific sector in mind that they are interested in regarding the impact of tariffs.",
+            "Based on the user's response, provide a brief overview of how tariffs generally affect that specific sector, or explain tariffs' broader impact on the market.",
+            "Inquire if the user would like to know about recent trends or examples related to that sector affected by tariffs.",
+            "If the user wants examples, provide specific instances of how recent tariff changes have affected companies or stocks within that sector.",
+            "Ask the user if they have any further questions regarding tariffs, market trends, or specific stocks they are interested in."
+        ]
+    },
+    {
+        "task_name": "Provide recommendations for investment strategies based on market analysis",
+        "steps": [
+            "Ask the user about their current financial goals or investment interests, such as risk tolerance, investment horizon, or specific sectors they are interested in.",
+            "Provide a brief overview of current market trends and insights relevant to the user's interests and goals.",
+            "Recommend specific investment strategies or options based on the current market analysis and the user's stated preferences.",
+            "Ask the user if they would like more detailed information about any of the recommended strategies or if they have additional questions.",
+            "Confirm the user's understanding of the recommendations and provide guidance on how to proceed with implementing their chosen strategy."
+        ]
+    }
+]

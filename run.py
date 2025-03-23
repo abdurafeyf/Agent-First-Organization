@@ -9,11 +9,10 @@ import atexit
 from dotenv import load_dotenv
 from pprint import pprint
 
-import shopify
 
 from arklex.utils.utils import init_logger
 from arklex.orchestrator.orchestrator import AgentOrg
-# from create import API_PORT
+from create import API_PORT
 from arklex.utils.model_config import MODEL
 from arklex.utils.model_provider_config import LLM_PROVIDERS
 from arklex.env.env import Env

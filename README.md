@@ -41,7 +41,7 @@ Watch the tutorial on [YouTube](https://youtu.be/y1P2Ethvy0I) to learn how to bu
 
 * 📄 Configuration File
 
-  *	Create a chatbot config file similar to `customer_service_config.json`.
+  *	Create a chatbot config file similar to `financial_service_config.json`.
 
   *	Define chatbot parameters, including role, objectives, domain, introduction, and relevant documents.
 
@@ -52,10 +52,10 @@ Watch the tutorial on [YouTube](https://youtu.be/y1P2Ethvy0I) to learn how to bu
 
 **📊 1. Create Taskgraph and Initialize Worker**
 
-> **:bulb:** The following `--output-dir`, `--input-dir` and `--documents_dir` can be the same directory to save the generated files and the chatbot will use the generated files to run. E.g `--output-dir ./example/customer_service`. The following commands take *customer_service* chatbot as an example.
+> **:bulb:** The following `--output-dir`, `--input-dir` and `--documents_dir` can be the same directory to save the generated files and the chatbot will use the generated files to run. E.g `--output-dir ./example/financial_service`. The following commands take *financial_service* chatbot as an example.
 
 ```
-python create.py --config ./examples/customer_service_config.json --output-dir ./examples/customer_service
+python create.py --config ./examples/financial_service_config.json --output-dir ./examples/financial_service --model gpt-4o-mini
 ```
 
 * Fields:
@@ -70,7 +70,7 @@ python create.py --config ./examples/customer_service_config.json --output-dir .
 
 **💬 2. Start Chatting**
 ```
-python run.py --input-dir ./examples/customer_service
+python run.py --input-dir ./examples/financial_service --model gpt-4o-mini
 ```
 
 * Fields:
@@ -93,7 +93,7 @@ python run.py --input-dir ./examples/customer_service
 
   * First, create api for the previous chatbot you built. It will start an api on the default port 8000.
     ```
-    python model_api.py  --input-dir ./examples/customer_service
+    python model_api.py  --input-dir ./examples/financial_service --model gpt-4o-mini
     ```
 
     * Fields:
@@ -105,9 +105,10 @@ python run.py --input-dir ./examples/customer_service
     ```
     python eval.py \
     --model_api http://127.0.0.1:8000/eval/chat \
-    --config ./examples/customer_service_config.json \
-    --documents_dir ./examples/customer_service \
-    --output-dir ./examples/customer_service
+    --config ./examples/financial_service_config.json \
+    --documents_dir ./examples/financial_service \
+    --output-dir ./examples/financial_service \
+    --model gpt-4o-mini
     ```
     * Fields:
       * `--model_api`: The api url that you created in the previous step
