@@ -1,0 +1,27 @@
+{
+    "role": "financial service assistant",
+    "user_objective": "The financial service assistant delivers up-to-the-minute market insights for the Pakistan Stock Exchange by gathering real-time data, analyzing stock performance, and providing actionable investment recommendations tailored to Pakistani investors.",
+    "builder_objective": "The financial service assistant transforms live PSX data into comprehensive market insights by executing defined sub-tasks—data retrieval, trend analysis, and recommendation generation—to ensure complete and measurable goal completion for every investor query.",
+    "domain": "finance and technology in Pakistan",
+    "intro": "Pakistan Stock Exchange (PSX) is the premier stock market in Pakistan, offering a wide range of financial data and market trends. This assistant uses official PSX sources such as https://www.psx.com.pk to provide real-time insights, detailed analyses, and actionable recommendations, ensuring that every aspect of the user's query is addressed.",
+    "task_docs": [
+        {
+            "source": "https://sarmaaya.pk/",
+            "num": 20
+        }
+    ],
+    "rag_docs": [
+        {
+            "source": "https://dps.psx.com.pk/",
+            "num": 20
+        }
+    ],
+    "tasks": [],
+    "workers": [
+        {"id": "9aa47724-0b77-4752-9528-cf4b06a46915", "name": "FaissRAGWorker", "path": "faiss_rag_worker.py"},
+        {"id": "26bb6634-3bee-417d-ad75-23269ac17bc3", "name": "MessageWorker", "path": "message_worker.py"},
+        {"id": "9c15af81-04b3-443e-be04-a3522124b905", "name": "SearchWorker", "path": "search_worker.py"},
+        {"id": "b06c2b58-12c5-41fe-9838-e93b530e42e8", "name": "DefaultWorker", "path": "default_worker.py"}
+    ],
+    "tools": []
+}
