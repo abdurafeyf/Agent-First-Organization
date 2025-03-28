@@ -1,6 +1,6 @@
 # Financial Service PAK
 
-**Financial Service PAK** is a concise, modular setup leveraging [Arklex AI](https://www.arklex.ai/qa/open-source) to build and deploy an **AI-powered financial assistant**. This repository combines a Node.js/TypeScript **web frontend** (`financeanalyzer/`) with Arklex’s **Taskgraph** orchestrations and worker initialization in Python.
+**Financial Service PAK** is a concise, modular setup using [Arklex AI](https://www.arklex.ai/qa/open-source) to build and deploy an **AI-powered financial assistant**. This repository combines a Node.js/TypeScript **web frontend** (`financeanalyzer/`) with Arklex’s **Taskgraph** orchestrations and worker initialization in Python.
 
 ![Financeanalyzer Web App Screenshot](./image.png)  
 *(Add your actual screenshot here.)*
@@ -90,6 +90,4 @@ financial_service_pak/
 
 ## Contributing
 
-Feel free to open issues or PRs to enhance **Financial Service PAK**—whether it’s refining the frontend, adding new workers/tools, or extending the AI’s financial capabilities.
-
-**Happy Building!**
+Feel free to open issues or PRs to enhance **Financial Service PAK**—whether it’s refining the frontend, adding new workers/tools, or extending it.
