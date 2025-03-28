@@ -1,58 +1,68 @@
 [
     {
-        "task_name": "Provide current stock prices for specified stocks",
+        "task_name": "Provide current stock prices for specific companies listed on the Pakistan Stock Exchange (PSX)",
         "steps": [
-            "Provide current stock prices for specified stocks"
+            "Provide current stock prices for specific companies listed on the Pakistan Stock Exchange (PSX)"
         ]
     },
     {
-        "task_name": "Provide information on current market trends and analysis",
+        "task_name": "Provide analysis of basic market trends and performance on the Pakistan Stock Exchange (PSX)",
         "steps": [
-            "Inquire about the specific information the user is seeking, such as current stock prices, market trends, or specific stocks of interest.",
-            "Based on the user's response, either retrieve the latest market trends or stock prices using the appropriate worker (e.g., SearchWorker or FaissRAGWorker).",
-            "Provide the user with the requested information, including any relevant analysis or insights on the current market conditions.",
-            "Ask the user if they would like more detailed analysis on a specific stock or sector, or if they have any other questions related to their investment interests.",
-            "If the user has additional questions or needs further assistance, respond accordingly; otherwise, thank the user for their inquiry and offer help in the future."
+            "Ask the user what specific information they would like to know about the Pakistan Stock Exchange, such as current stock prices, recent trends, or specific stocks of interest.",
+            "Based on the user's input, retrieve relevant information using the SearchWorker or MarketInfoMessageWorker to gather real-time data about stock prices and market trends.",
+            "Present the analyzed market trends and performance data to the user, highlighting key insights such as notable price movements, market sentiment, and any relevant news.",
+            "Inquire if the user needs more detailed analysis on specific stocks or sectors, or if they would like to understand more about investment options.",
+            "Confirm if the provided information meets the user's needs and if they have any further questions or topics they would like to discuss."
         ]
     },
     {
-        "task_name": "Provide detailed information about specific companies listed on PSX",
+        "task_name": "Provide detailed information about a specific company listed on the PSX, including financial performance and announcements",
         "steps": [
-            "Ask the user to specify the name of the company they want information about.",
-            "Search for the specified company using the SearchWorker to retrieve real-time data from the Pakistan Stock Market.",
-            "Provide the user with detailed information about the company, including stock prices, market trends, and relevant financial metrics.",
-            "Ask the user if they need more specific information about the company, such as historical performance, news updates, or investment guidance.",
-            "If the user requests additional information, provide it using the FaissRAGWorker or DefaultWorker as appropriate, based on the nature of the inquiry."
+            "Ask the user to specify the name or ticker symbol of the company they are interested in.",
+            "Retrieve and provide the latest stock price and key financial performance indicators for the specified company.",
+            "Inquire if the user would like information on recent announcements or news related to that company.",
+            "If requested, provide details on the latest announcements or news regarding the company, including any relevant financial reports.",
+            "Ask the user if they need further assistance or if they have any specific questions about the company's performance or market position."
         ]
     },
     {
-        "task_name": "Provide basic investment guidance and tips",
+        "task_name": "Provide simple investment guidance based on current market conditions and stock performance",
         "steps": [
-            "Inquire about the user's current knowledge of the stock market and what specific guidance they are looking for (e.g., beginner tips, investment strategies).",
-            "Based on the user's response, provide tailored basic investment tips, such as understanding risk, diversification, and research methods.",
-            "Ask if the user is interested in learning about specific stocks or sectors within the Pakistan Stock Market.",
-            "Offer to provide information on specific stocks, including current prices, trends, and any recent news that might affect their performance.",
-            "Confirm if the user needs further assistance or has any other questions regarding their investment journey."
+            "Inquire about the user's interest in specific stocks or sectors within the Pakistan Stock Market.",
+            "Retrieve current market conditions and stock performance data relevant to the user's interest.",
+            "Provide a summary of current market trends and stock performance, highlighting any notable changes or opportunities.",
+            "Ask the user if they require further details on specific stocks or additional investment advice.",
+            "Deliver tailored investment guidance based on the user's inquiries and the current market analysis."
         ]
     },
     {
-        "task_name": "Provide comparative analysis of specified stocks",
+        "task_name": "Allow users to track their investment portfolio performance and receive updates",
         "steps": [
-            "Ask the user to specify which stocks they would like to compare and any particular aspects they are interested in (e.g., price, market trends, performance metrics).",
-            "Gather the necessary data for the specified stocks, including current prices, market trends, and performance metrics using the appropriate workers.",
-            "Provide the user with a comparative analysis of the specified stocks, highlighting key differences and similarities based on the collected data.",
-            "Ask the user if they need further clarification on any specific points or if they would like to explore additional stocks for comparison.",
-            "Confirm if the user is satisfied with the analysis or if they require more detailed information or guidance on making investment decisions."
+            "Inquire about the user's current investment portfolio to understand their holdings and investment interests.",
+            "Retrieve and present the latest performance data of the user's investment portfolio, including stock prices and market trends.",
+            "Ask the user if they would like to receive regular updates on their portfolio performance or any specific stocks.",
+            "Confirm the user's preferences for updates, such as frequency (daily, weekly, etc.) and the mode of notification (email, SMS, etc.).",
+            "Provide instructions on how the user can access their portfolio details at any time and ensure they know how to reach out for further assistance."
         ]
     },
     {
-        "task_name": "Provide performance data for different sectors in the stock market",
+        "task_name": "Provide historical stock prices and performance data for companies listed on the PSX",
         "steps": [
-            "Inquire the user about which specific sectors they are interested in or if they would like an overview of all sectors.",
-            "Based on the user's response, retrieve the relevant performance data for the specified sectors using the SearchWorker for real-time information.",
-            "Present the performance data to the user, including key metrics like stock prices, market trends, and any relevant comparisons.",
-            "Ask the user if they would like more detailed information on any specific sector or if they have further questions related to the data provided.",
-            "If the user has additional questions, provide answers or direct them to relevant resources. If not, ask if they need assistance with any other financial inquiries."
+            "Ask the user for the specific company or stock symbol they are interested in to retrieve historical performance data.",
+            "Use the SearchWorker to gather real-time online search results for the requested company's historical stock prices and performance data.",
+            "Provide the user with the retrieved historical stock prices along with a brief summary of the company's performance trends.",
+            "Ask the user if they would like additional details, such as specific date ranges or comparisons with other companies.",
+            "If the user requests further information, refine the search based on their input and provide the requested data."
+        ]
+    },
+    {
+        "task_name": "Provide performance analysis of different sectors within the Pakistan Stock Exchange",
+        "steps": [
+            "Ask the user which specific sectors of the Pakistan Stock Exchange they are interested in analyzing.",
+            "Retrieve and present the latest performance data for the selected sectors using the MarketInfoMessageWorker.",
+            "Inquire if the user wants to know more about specific stocks within those sectors or any particular metrics (e.g., price changes, volume, etc.).",
+            "Based on the user's response, provide detailed stock performance data or metrics for the requested stocks or sectors.",
+            "Ask the user if they need additional analysis or insights on other sectors or further assistance with investment guidance."
         ]
     }
 ]

@@ -1,44 +1,48 @@
 {
     "role": "financial service assistant",
-    "user_objective": "To provide accurate and timely financial information about the Pakistan Stock Market, including stock prices, market trends, and basic investment guidance.",
-    "builder_objective": "To create a reliable financial assistant that can fetch market data, answer basic investment questions, and provide clear market information.",
-    "domain": "finance and technology",
+    "user_objective": "The financial service assistant provides accurate and timely financial information about the Pakistan Stock Market, including stock prices, market trends, and basic investment guidance.",
+    "builder_objective": "The financial service assistant can fetch market data, answer basic investment questions, and provide clear market information.",
+    "domain": "finance and technology in Pakistan",
     "intro": "Hello! I'm your Pakistan Stock Market assistant. I can help you with: 1) Current stock prices and market data 2) Basic market trends and analysis 3) Company information from PSX 4) Simple investment guidance. What would you like to know about?",
     "task_docs": [
         {
-            "source": "https://sarmaaya.pk/psx/sectors",
-            "num": 10
-        },
-        {
-            "source": "https://sarmaaya.pk/psx/",
-            "num": 10
-        },
-        {
-            "source": "https://dps.psx.com.pk/listings",
-            "num": 5
+            "source": "https://sarmaaya.pk/",
+            "num": 20
         }
     ],
     "rag_docs": [
         {
             "source": "https://dps.psx.com.pk/",
-            "num": 10
-        },
-        {
-            "source": "https://sarmaaya.pk/",
-            "num": 10
-        },
-        {
-            "source": "https://dps.psx.com.pk/listings",
-            "num": 5
+            "num": 20
         }
-        
     ],
     "tasks": [],
     "workers": [
-        {"id": "9aa47724-0b77-4752-9528-cf4b06a46915", "name": "FaissRAGWorker", "path": "faiss_rag_worker.py"},
-        {"id": "26bb6634-3bee-417d-ad75-23269ac17bc3", "name": "MessageWorker", "path": "message_worker.py"},
-        {"id": "9c15af81-04b3-443e-be04-a3522124b905", "name": "SearchWorker", "path": "search_worker.py"},
-        {"id": "b06c2b58-12c5-41fe-9838-e93b530e42e8", "name": "DefaultWorker", "path": "default_worker.py"}
+        {
+            "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
+            "name": "FaissRAGWorker",
+            "path": "faiss_rag_worker.py"
+        },
+        {
+            "id": "9c15af81-04b3-443e-be04-a3522124b905",
+            "name": "SearchWorker",
+            "path": "search_worker.py"
+        },
+        {
+            "id": "b06c2b58-12c5-41fe-9838-e93b530e42e8",
+            "name": "DefaultWorker",
+            "path": "default_worker.py"
+        },
+        {
+            "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+            "name": "MessageWorker",
+            "path": "message_worker.py"
+        },
+        {
+            "id": "MarketInfoMessageWorker",
+            "name": "MarketInfoMessageWorker",
+            "path": "market_info_message_worker.py"
+        }
     ],
     "tools": []
 } 
