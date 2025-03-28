@@ -14,6 +14,7 @@ import uvicorn
 
 from openai import OpenAI
 from fastapi import FastAPI, Response
+from fastapi.middleware.cors import CORSMiddleware
 
 from arklex.orchestrator.orchestrator import AgentOrg
 from create import API_PORT
@@ -25,6 +26,13 @@ SLOTFILLAPI_ADDR = f"http://localhost:{API_PORT}/slotfill"
 logger = logging.getLogger(__name__)
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # CONFIG_TASKGRAPH = None
 
 # @app.on_event("startup")
@@ -103,6 +111,42 @@ def predict(data: Dict):
     answer, params = get_api_bot_response(args, history[:-1], user_text, params, env)
     return {"answer": answer, "parameters": params}
 
+
+@app.post("/chat")
+def chat_endpoint(data: Dict):
+    """
+    A simple chat endpoint that accepts a JSON payload with:
+      - "text": the current user message (optional if history is provided)
+      - "history": optional list of messages (each a dict with at least a "content" field)
+      - "parameters": optional parameters dictionary
+      - "tools": optional list for the Env
+      - "workers": optional list for the Env
+    """
+    # If a 'text' field is provided, use it; otherwise try to extract from history.
+    if "text" in data:
+        user_text = data["text"]
+        history = data.get("history", [])
+    else:
+        history = data.get("history", [])
+        if history:
+            user_text = history[-1].get("content")
+        else:
+            return Response(
+                content="No user message provided", status_code=HTTPStatus.BAD_REQUEST
+            )
+
+    parameters = data.get("parameters", {})
+    tools = data.get("tools", [])
+    workers = data.get("workers", [])
+
+    env = Env(
+        tools=tools,
+        workers=workers,
+        slotsfillapi=SLOTFILLAPI_ADDR
+    )
+    # Use the full history if needed (or adjust if you want to trim it)
+    answer, parameters = get_api_bot_response(args, history, user_text, parameters, env)
+    return {"answer": answer, "parameters": parameters}
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Start FastAPI with custom config.")

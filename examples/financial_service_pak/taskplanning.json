@@ -1,104 +1,58 @@
 [
     {
-        "task_name": "Provide up-to-the-minute market insights for the Pakistan Stock Market",
+        "task_name": "Provide current stock prices for specified stocks",
         "steps": [
-            "Ask the user what specific information they are looking for regarding the Pakistan Stock Market (e.g., specific stocks, market trends, or investment advice).",
-            "Utilize the SearchWorker to gather real-time data based on the user's request and present the latest market insights or stock performance information.",
-            "Inquire if the user needs more detailed information on specific stocks or trends, or if they require further analysis on their investment options.",
-            "Based on the user's response, provide tailored investment recommendations or deeper insights into the requested stocks or market trends.",
-            "Ask the user if they have any other questions or need assistance with making investment decisions based on the insights provided."
+            "Provide current stock prices for specified stocks"
         ]
     },
     {
-        "task_name": "Analyze and provide stock performance data, including historical trends",
+        "task_name": "Provide information on current market trends and analysis",
         "steps": [
-            "Ask the user which specific stock or sector they are interested in analyzing for performance data.",
-            "Retrieve historical performance data and trends for the specified stock or sector.",
-            "Present the user with a summary of the stock's historical performance, including key metrics such as price changes, percentage growth, and major events impacting the stock.",
-            "Inquire if the user would like more detailed analysis or comparison with other stocks or sectors.",
-            "Provide additional insights or recommendations based on the user's request for more information or comparisons."
+            "Inquire about the specific information the user is seeking, such as current stock prices, market trends, or specific stocks of interest.",
+            "Based on the user's response, either retrieve the latest market trends or stock prices using the appropriate worker (e.g., SearchWorker or FaissRAGWorker).",
+            "Provide the user with the requested information, including any relevant analysis or insights on the current market conditions.",
+            "Ask the user if they would like more detailed analysis on a specific stock or sector, or if they have any other questions related to their investment interests.",
+            "If the user has additional questions or needs further assistance, respond accordingly; otherwise, thank the user for their inquiry and offer help in the future."
         ]
     },
     {
-        "task_name": "Offer actionable investment recommendations based on market analysis",
+        "task_name": "Provide detailed information about specific companies listed on PSX",
         "steps": [
-            "Inquire about the user's investment goals and risk tolerance to understand their preferences.",
-            "Gather real-time market data and analyze stock performance relevant to the user's interests.",
-            "Provide the user with tailored investment recommendations based on the analyzed market data.",
-            "Ask the user if they have any specific stocks or sectors they are interested in or if they require further information.",
-            "Confirm if the user is satisfied with the recommendations or if they would like to explore other options.",
-            "Provide additional resources or guidance on how to proceed with the recommended investments, including any necessary steps."
+            "Ask the user to specify the name of the company they want information about.",
+            "Search for the specified company using the SearchWorker to retrieve real-time data from the Pakistan Stock Market.",
+            "Provide the user with detailed information about the company, including stock prices, market trends, and relevant financial metrics.",
+            "Ask the user if they need more specific information about the company, such as historical performance, news updates, or investment guidance.",
+            "If the user requests additional information, provide it using the FaissRAGWorker or DefaultWorker as appropriate, based on the nature of the inquiry."
         ]
     },
     {
-        "task_name": "Assist in tracking and managing investment portfolios",
+        "task_name": "Provide basic investment guidance and tips",
         "steps": [
-            "Inquire about the user's current investment portfolio and any specific stocks or assets they want to track.",
-            "Retrieve real-time data on the specified stocks or assets and provide the user with the latest performance metrics.",
-            "Ask the user if they would like insights on potential adjustments to their portfolio based on current market trends.",
-            "Provide personalized investment recommendations or insights based on the user's portfolio and current market conditions.",
-            "Confirm if the user wants to take any action based on the recommendations or if they need further assistance."
+            "Inquire about the user's current knowledge of the stock market and what specific guidance they are looking for (e.g., beginner tips, investment strategies).",
+            "Based on the user's response, provide tailored basic investment tips, such as understanding risk, diversification, and research methods.",
+            "Ask if the user is interested in learning about specific stocks or sectors within the Pakistan Stock Market.",
+            "Offer to provide information on specific stocks, including current prices, trends, and any recent news that might affect their performance.",
+            "Confirm if the user needs further assistance or has any other questions regarding their investment journey."
         ]
     },
     {
-        "task_name": "Provide detailed information and performance metrics for mutual funds",
+        "task_name": "Provide comparative analysis of specified stocks",
         "steps": [
-            "Ask the user which specific mutual fund they are interested in or if they need recommendations based on their investment goals.",
-            "Retrieve and present key details about the selected mutual fund, including its performance metrics, historical returns, and any relevant news or updates.",
-            "Inquire if the user would like to compare this mutual fund with others or if they need information on related investment options.",
-            "Provide comparative performance metrics or additional details about other mutual funds based on the user's interests.",
-            "Ask if the user needs further assistance, such as advice on how to invest in the mutual fund or setting up an investment account."
+            "Ask the user to specify which stocks they would like to compare and any particular aspects they are interested in (e.g., price, market trends, performance metrics).",
+            "Gather the necessary data for the specified stocks, including current prices, market trends, and performance metrics using the appropriate workers.",
+            "Provide the user with a comparative analysis of the specified stocks, highlighting key differences and similarities based on the collected data.",
+            "Ask the user if they need further clarification on any specific points or if they would like to explore additional stocks for comparison.",
+            "Confirm if the user is satisfied with the analysis or if they require more detailed information or guidance on making investment decisions."
         ]
     },
     {
-        "task_name": "Deliver insights and recommendations for forex trading",
+        "task_name": "Provide performance data for different sectors in the stock market",
         "steps": [
-            "Ask the user about their current interest in forex trading, including specific currency pairs or market trends they are following.",
-            "Use the SearchWorker to gather real-time data on the specified currency pairs or trends provided by the user.",
-            "Present the user with the latest market insights, including current exchange rates, recent performance trends, and any significant news impacting the forex market.",
-            "Inquire if the user is looking for specific investment strategies or recommendations based on the insights provided.",
-            "If the user requests recommendations, provide tailored investment strategies or next steps based on their trading goals and risk tolerance.",
-            "Ask the user if they have any further questions or need more information on specific aspects of forex trading."
-        ]
-    },
-    {
-        "task_name": "Offer financial calculators for various investment scenarios",
-        "steps": [
-            "Ask the user about their investment goals and what specific scenarios they would like to calculate (e.g., retirement savings, investment growth, loan repayment).",
-            "Based on the user's response, provide relevant financial calculators that match their investment scenario.",
-            "Request specific inputs from the user needed for the calculator, such as initial investment amount, expected rate of return, and investment duration.",
-            "Perform the calculation using the provided inputs and present the results back to the user, including insights or recommendations based on the outcome.",
-            "Ask the user if they would like to perform calculations for additional scenarios or if they need further assistance."
-        ]
-    },
-    {
-        "task_name": "Provide educational resources and articles on financial literacy",
-        "steps": [
-            "Ask the user what specific topics or areas of financial literacy they are interested in learning about.",
-            "Based on the user's response, search for relevant educational resources and articles that match the specified topics.",
-            "Present the user with a selection of articles and resources, summarizing the key points of each to help them choose.",
-            "Inquire if the user would like more detailed information on a specific article or topic, or if they have any other questions.",
-            "Confirm the user's selections and provide links to the articles, along with any additional resources they may find helpful."
-        ]
-    },
-    {
-        "task_name": "Provide current prices and trends for various commodities",
-        "steps": [
-            "Ask the user which commodities they are interested in, such as gold, silver, oil, etc.",
-            "Once the user specifies the commodities, use the SearchWorker to gather real-time data on current prices and trends for those commodities.",
-            "Present the user with the current prices and a brief overview of trends for the specified commodities.",
-            "Inquire if the user needs additional information, such as historical data, analysis, or investment recommendations related to the commodities.",
-            "Provide the requested additional information or analysis, if applicable, and confirm if the user has any further questions or needs assistance with investments."
-        ]
-    },
-    {
-        "task_name": "Set up alerts for significant market events or changes",
-        "steps": [
-            "Inquire about the specific market events or changes the user wants to be alerted about (e.g., stock price changes, market news, etc.).",
-            "Ask the user to specify the criteria for these alerts, such as percentage change, specific stocks, or market indices.",
-            "Confirm the user's preferences and summarize the alert settings to ensure accuracy.",
-            "Provide instructions on how the user will receive these alerts (e.g., via email, SMS, app notifications).",
-            "Confirm the setup of the alerts and ask if the user needs assistance with anything else related to market insights or investment."
+            "Inquire the user about which specific sectors they are interested in or if they would like an overview of all sectors.",
+            "Based on the user's response, retrieve the relevant performance data for the specified sectors using the SearchWorker for real-time information.",
+            "Present the performance data to the user, including key metrics like stock prices, market trends, and any relevant comparisons.",
+            "Ask the user if they would like more detailed information on any specific sector or if they have further questions related to the data provided.",
+            "If the user has additional questions, provide answers or direct them to relevant resources. If not, ask if they need assistance with any other financial inquiries."
         ]
     }
 ]
