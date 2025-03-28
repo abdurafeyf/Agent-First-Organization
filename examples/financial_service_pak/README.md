@@ -2,8 +2,7 @@
 
 **Financial Service PAK** is a concise, modular setup using [Arklex AI](https://www.arklex.ai/qa/open-source) to build and deploy an **AI-powered financial assistant**. This repository combines a Node.js/TypeScript **web frontend** (`financeanalyzer/`) with Arklex’s **Taskgraph** orchestrations and worker initialization in Python.
 
-![Financeanalyzer Web App Screenshot](./image.png)  
-*(Add your actual screenshot here.)*
+![Financeanalyzer Web App Screenshot](./image.png)
 
 ---
 
@@ -11,8 +10,8 @@
 
 ```
 financial_service_pak/
-├── eval/                # Evaluation scripts
-├── financeanalyzer/     # Web frontend (Node.js + Vite + Tailwind)
+├── eval/                # Evaluation
+├── financeanalyzer/     # Web frontend (Node.js + Vite)
 ├── .bolt/
 ├── node_modules/
 ├── src/                 # Additional source or integration scripts
@@ -23,7 +22,7 @@ financial_service_pak/
 └── ...
 ```
 
-### Notable Files
+### Main Files
 - **`.env`**: Backend environment variables (e.g., `OPENAI_API_KEY`).  
 - **`financeanalyzer/.env`**: Frontend environment variables, including Supabase and OpenAI keys:
   ```bash
@@ -63,11 +62,12 @@ financial_service_pak/
    python create.py \
      --config ./financial_service_config.json \
      --output-dir ./financial_service_pak
+     --model gpt-4o-mini
    ```
    - Edit the task plan interactively if needed, then save.
 3. **Run the Agent**  
    ```bash
-   python run.py --input-dir ./financial_service_pak
+   python run.py --input-dir ./financial_service_pak --model gpt-4o-mini
    ```
    - Chat with the financial assistant in your console or via the integrated API.
 
@@ -75,7 +75,7 @@ financial_service_pak/
 
 1. **Create API**  
    ```bash
-   python model_api.py --input-dir ./financial_service_pak
+   python model_api.py --input-dir ./financial_service_pak ----model gpt-4o-mini
    ```
 2. **Simulate Conversations**  
    ```bash
@@ -84,6 +84,7 @@ financial_service_pak/
      --config ./financial_service_config.json \
      --documents_dir ./financial_service_pak \
      --output-dir ./financial_service_pak
+     --model gpt-4o-mini
    ```
 
 ---
