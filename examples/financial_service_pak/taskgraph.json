@@ -8,7 +8,7 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Hello! I'm your Financial Service Assistant. How can I assist you with information about the Pakistan Stock Market today?",
+                    "value": "Hello! I'm your Financial Service Assistant. How can I assist you with your inquiries about the Pakistan Stock Market today?",
                     "task": "start message",
                     "directed": false
                 },
@@ -20,12 +20,12 @@
             "1",
             {
                 "resource": {
-                    "id": "9c15af81-04b3-443e-be04-a3522124b905",
-                    "name": "SearchWorker"
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "The current stock price for Company XYZ is PKR 150.00.",
-                    "task": "Provide current stock prices for specific companies listed on the Pakistan Stock Exchange (PSX).",
+                    "value": "Which company or companies are you interested in for stock prices or market data?",
+                    "task": "Ask the user for the specific company or companies they are interested in regarding stock prices or market data.",
                     "directed": false
                 },
                 "limit": 1
@@ -35,12 +35,12 @@
             "2",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "9c15af81-04b3-443e-be04-a3522124b905",
+                    "name": "SearchWorker"
                 },
                 "attribute": {
-                    "value": "What specific information are you looking for about the Pakistan Stock Exchange? Current stock prices, recent trends, or something else?",
-                    "task": "Ask the user what specific information they would like to know about the Pakistan Stock Exchange, such as current stock prices, recent trends, or specific stocks of interest.",
+                    "value": "",
+                    "task": "Retrieve the latest stock prices and market data for the specified companies using the relevant worker.",
                     "directed": false
                 },
                 "limit": 1
@@ -50,12 +50,12 @@
             "3",
             {
                 "resource": {
-                    "id": "9c15af81-04b3-443e-be04-a3522124b905",
-                    "name": "SearchWorker"
+                    "id": "MarketInfoMessageWorker",
+                    "name": "MarketInfoMessageWorker"
                 },
                 "attribute": {
-                    "value": "",
-                    "task": "Based on the user's input, retrieve relevant information using the SearchWorker or MarketInfoMessageWorker to gather real-time data about stock prices and market trends.",
+                    "value": "The current stock price for Company A is $XX.XX, showing a trend of X% increase today.",
+                    "task": "Provide the user with the current stock prices and any relevant market trends for the requested companies.",
                     "directed": false
                 },
                 "limit": 1
@@ -65,12 +65,12 @@
             "4",
             {
                 "resource": {
-                    "id": "MarketInfoMessageWorker",
-                    "name": "MarketInfoMessageWorker"
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Here are the recent trends in the Pakistan Stock Exchange: [insert key insights and notable price movements].",
-                    "task": "Present the analyzed market trends and performance data to the user, highlighting key insights such as notable price movements, market sentiment, and any relevant news.",
+                    "value": "Would you like additional information like historical data or investment guidance on these stocks?",
+                    "task": "Ask the user if they need additional information, such as historical data or investment guidance related to the stocks.",
                     "directed": false
                 },
                 "limit": 1
@@ -80,12 +80,12 @@
             "5",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "default_worker",
+                    "name": "DefaultWorker"
                 },
                 "attribute": {
-                    "value": "Would you like more detailed analysis on specific stocks or sectors, or do you want to explore investment options?",
-                    "task": "Inquire if the user needs more detailed analysis on specific stocks or sectors, or if they would like to understand more about investment options.",
+                    "value": "I can help you with that! Please let me know what specific information you need.",
+                    "task": "Respond to any follow-up questions or requests for additional data, ensuring the user has all the information they need.",
                     "directed": false
                 },
                 "limit": 1
@@ -99,8 +99,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Does the information I provided meet your needs? Do you have any further questions or other topics you'd like to discuss?",
-                    "task": "Confirm if the provided information meets the user's needs and if they have any further questions or topics they would like to discuss.",
+                    "value": "Hello! Are you looking for specific information about the Pakistan Stock Market or general market trends?",
+                    "task": "Begin by greeting the user and asking if they are looking for specific information about the Pakistan Stock Market or general market trends.",
                     "directed": false
                 },
                 "limit": 1
@@ -114,8 +114,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Could you please provide the name or ticker symbol of the company you are interested in?",
-                    "task": "Ask the user to specify the name or ticker symbol of the company they are interested in.",
+                    "value": "Could you please specify if you are interested in particular stocks, sectors, or the overall market performance?",
+                    "task": "If the user expresses interest in specific information, inquire about their focus areas, such as particular stocks, sectors, or overall market performance.",
                     "directed": false
                 },
                 "limit": 1
@@ -129,8 +129,8 @@
                     "name": "SearchWorker"
                 },
                 "attribute": {
-                    "value": "The latest stock price for Apple Inc. (AAPL) is $150.00, with a P/E ratio of 28.5.",
-                    "task": "Retrieve and provide the latest stock price and key financial performance indicators for the specified company.",
+                    "value": "",
+                    "task": "Based on the user's input, retrieve relevant market data using the SearchWorker to provide up-to-date stock prices and trends.",
                     "directed": false
                 },
                 "limit": 1
@@ -140,12 +140,12 @@
             "9",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "MarketInfoMessageWorker",
+                    "name": "MarketInfoMessageWorker"
                 },
                 "attribute": {
-                    "value": "Would you like to know about any recent announcements or news related to this company?",
-                    "task": "Inquire if the user would like information on recent announcements or news related to that company.",
+                    "value": "Currently, the market is trending upward with significant movements in the tech sector. The KSE-100 index has increased by 2% today.",
+                    "task": "Present the user with a summary of the market trends and significant movements, ensuring to include key statistics and insights.",
                     "directed": false
                 },
                 "limit": 1
@@ -155,12 +155,12 @@
             "10",
             {
                 "resource": {
-                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
-                    "name": "FaissRAGWorker"
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Recently, Apple Inc. announced their quarterly earnings report, showing a 10% increase in revenue compared to last year.",
-                    "task": "If requested, provide details on the latest announcements or news regarding the company, including any relevant financial reports.",
+                    "value": "Do you have any further questions, or would you like more detailed analysis on specific stocks or sectors?",
+                    "task": "Ask the user if they have any further questions or if they would like more detailed analysis on specific stocks or sectors.",
                     "directed": false
                 },
                 "limit": 1
@@ -170,12 +170,12 @@
             "11",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
+                    "name": "FaissRAGWorker"
                 },
                 "attribute": {
-                    "value": "Do you need any further assistance or have any specific questions about the company's performance or market position?",
-                    "task": "Ask the user if they need further assistance or if they have any specific questions about the company's performance or market position.",
+                    "value": "",
+                    "task": "If the user requests more information, utilize the FaissRAGWorker to provide additional insights based on internal documentation or historical data.",
                     "directed": false
                 },
                 "limit": 1
@@ -189,8 +189,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Which stocks or sectors in the Pakistan Stock Market are you interested in?",
-                    "task": "Inquire about the user's interest in specific stocks or sectors within the Pakistan Stock Market.",
+                    "value": "Thank you for your engagement! If you have any more questions or need assistance, feel free to ask.",
+                    "task": "Conclude the interaction by offering to assist with any further inquiries and thank the user for their engagement.",
                     "directed": false
                 },
                 "limit": 1
@@ -200,12 +200,12 @@
             "13",
             {
                 "resource": {
-                    "id": "9c15af81-04b3-443e-be04-a3522124b905",
-                    "name": "SearchWorker"
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "",
-                    "task": "Retrieve current market conditions and stock performance data relevant to the user's interest.",
+                    "value": "Which specific stock or company would you like information about?",
+                    "task": "Ask the user which specific stock or company they would like information about.",
                     "directed": false
                 },
                 "limit": 1
@@ -215,12 +215,12 @@
             "14",
             {
                 "resource": {
-                    "id": "MarketInfoMessageWorker",
-                    "name": "MarketInfoMessageWorker"
+                    "id": "9c15af81-04b3-443e-be04-a3522124b905",
+                    "name": "SearchWorker"
                 },
                 "attribute": {
-                    "value": "Currently, the technology sector is showing a significant upward trend, with XYZ Corp seeing a 5% increase in the last week.",
-                    "task": "Provide a summary of current market trends and stock performance, highlighting any notable changes or opportunities.",
+                    "value": "",
+                    "task": "Retrieve the company information from available resources based on the user's request.",
                     "directed": false
                 },
                 "limit": 1
@@ -230,12 +230,12 @@
             "15",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "MarketInfoMessageWorker",
+                    "name": "MarketInfoMessageWorker"
                 },
                 "attribute": {
-                    "value": "Would you like more details on specific stocks or need additional investment advice?",
-                    "task": "Ask the user if they require further details on specific stocks or additional investment advice.",
+                    "value": "Here is the latest information on Company XYZ: Current stock price is $100, with a market trend indicating a steady increase over the past week.",
+                    "task": "Provide the user with the detailed company information, including stock prices, market trends, and any relevant data.",
                     "directed": false
                 },
                 "limit": 1
@@ -245,12 +245,12 @@
             "16",
             {
                 "resource": {
-                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
-                    "name": "FaissRAGWorker"
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Based on your interests, I recommend considering investments in the technology sector, particularly in companies that have shown consistent growth.",
-                    "task": "Deliver tailored investment guidance based on the user's inquiries and the current market analysis.",
+                    "value": "Do you need any additional information or have specific questions about this stock?",
+                    "task": "Ask the user if they need additional information or have any specific questions about the stock.",
                     "directed": false
                 },
                 "limit": 1
@@ -264,8 +264,8 @@
                     "name": "DefaultWorker"
                 },
                 "attribute": {
-                    "value": "Could you share some details about your current investment portfolio and your investment interests?",
-                    "task": "Inquire about the user's current investment portfolio to understand their holdings and investment interests.",
+                    "value": "If you have more questions, feel free to ask! Otherwise, let me know if you need help with anything else.",
+                    "task": "If the user has further questions, address them; otherwise, offer to assist with any other financial inquiries.",
                     "directed": false
                 },
                 "limit": 1
@@ -275,12 +275,12 @@
             "18",
             {
                 "resource": {
-                    "id": "MarketInfoMessageWorker",
-                    "name": "MarketInfoMessageWorker"
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Here is the latest performance data of your investments: [insert stock prices and trends].",
-                    "task": "Retrieve and present the latest performance data of the user's investment portfolio, including stock prices and market trends.",
+                    "value": "Hello! Are you interested in starting to invest in stocks or mutual funds today?",
+                    "task": "Greet the user and ask if they are interested in starting to invest in stocks or mutual funds.",
                     "directed": false
                 },
                 "limit": 1
@@ -294,8 +294,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Would you like to receive regular updates on your portfolio performance or any specific stocks?",
-                    "task": "Ask the user if they would like to receive regular updates on their portfolio performance or any specific stocks.",
+                    "value": "That's great to hear! Do you have any prior investing experience or knowledge?",
+                    "task": "If the user expresses interest, ask if they have any prior investing experience or knowledge.",
                     "directed": false
                 },
                 "limit": 1
@@ -305,12 +305,12 @@
             "20",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
+                    "name": "FaissRAGWorker"
                 },
                 "attribute": {
-                    "value": "How often would you like to receive updates on your portfolio? Daily, weekly? And would you prefer email or SMS notifications?",
-                    "task": "Confirm the user's preferences for updates, such as frequency (daily, weekly, etc.) and the mode of notification (email, SMS, etc.).",
+                    "value": "If you're new to investing, I recommend starting with the basics like understanding stocks, mutual funds, and how the market works.",
+                    "task": "Based on the user's experience level, provide tailored tips and resources on how to start investing, including basic concepts and terminologies.",
                     "directed": false
                 },
                 "limit": 1
@@ -320,12 +320,12 @@
             "21",
             {
                 "resource": {
-                    "id": "default_worker",
-                    "name": "DefaultWorker"
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "You can access your portfolio details anytime through our app. If you need further assistance, please feel free to reach out to our support team.",
-                    "task": "Provide instructions on how the user can access their portfolio details at any time and ensure they know how to reach out for further assistance.",
+                    "value": "Would you like information on specific stocks, mutual funds, or perhaps general market trends?",
+                    "task": "Ask the user if they would like information on specific stocks, mutual funds, or general market trends.",
                     "directed": false
                 },
                 "limit": 1
@@ -335,12 +335,12 @@
             "22",
             {
                 "resource": {
-                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
-                    "name": "MessageWorker"
+                    "id": "MarketInfoMessageWorker",
+                    "name": "MarketInfoMessageWorker"
                 },
                 "attribute": {
-                    "value": "Which company or stock symbol are you interested in for historical performance data?",
-                    "task": "Ask the user for the specific company or stock symbol they are interested in to retrieve historical performance data.",
+                    "value": "Here are the current stock prices for the companies you asked about, along with some mutual fund options.",
+                    "task": "Provide relevant information or resources based on the user's inquiry, such as current stock prices or mutual fund options.",
                     "directed": false
                 },
                 "limit": 1
@@ -350,12 +350,12 @@
             "23",
             {
                 "resource": {
-                    "id": "9c15af81-04b3-443e-be04-a3522124b905",
-                    "name": "SearchWorker"
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "",
-                    "task": "Use the SearchWorker to gather real-time online search results for the requested company's historical stock prices and performance data.",
+                    "value": "Do you have any further questions or need additional guidance on your investment journey?",
+                    "task": "Ask the user if they have any further questions or need additional guidance on their investment journey.",
                     "directed": false
                 },
                 "limit": 1
@@ -365,12 +365,12 @@
             "24",
             {
                 "resource": {
-                    "id": "MarketInfoMessageWorker",
-                    "name": "MarketInfoMessageWorker"
+                    "id": "default_worker",
+                    "name": "DefaultWorker"
                 },
                 "attribute": {
-                    "value": "Here are the historical stock prices for ABC Corp over the last year: [data]. Overall, the performance trend shows a steady increase.",
-                    "task": "Provide the user with the retrieved historical stock prices along with a brief summary of the company's performance trends.",
+                    "value": "If you're ready, I can assist you with setting up an account or provide additional educational resources to help you get started.",
+                    "task": "Offer to assist them with next steps, such as setting up an account or providing additional educational resources.",
                     "directed": false
                 },
                 "limit": 1
@@ -384,8 +384,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Would you like more details, like specific date ranges or comparisons with other companies?",
-                    "task": "Ask the user if they would like additional details, such as specific date ranges or comparisons with other companies.",
+                    "value": "Which stocks are you interested in comparing today?",
+                    "task": "Ask the user which stocks they are interested in comparing.",
                     "directed": false
                 },
                 "limit": 1
@@ -395,12 +395,12 @@
             "26",
             {
                 "resource": {
-                    "id": "9c15af81-04b3-443e-be04-a3522124b905",
-                    "name": "SearchWorker"
+                    "id": "MarketInfoMessageWorker",
+                    "name": "MarketInfoMessageWorker"
                 },
                 "attribute": {
-                    "value": "Based on your request, I found the historical performance for the last 5 years and compared it with XYZ Corp. Here are the details: [data].",
-                    "task": "If the user requests further information, refine the search based on their input and provide the requested data.",
+                    "value": "Here are the current prices and market trends for the stocks you requested.",
+                    "task": "Retrieve and provide the current prices, market trends, and key metrics for the selected stocks.",
                     "directed": false
                 },
                 "limit": 1
@@ -414,8 +414,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Which specific sectors of the Pakistan Stock Exchange are you interested in analyzing?",
-                    "task": "Ask the user which specific sectors of the Pakistan Stock Exchange they are interested in analyzing.",
+                    "value": "Would you like to see more information or comparisons on historical performance or market trends?",
+                    "task": "Ask the user if they would like to see additional information or comparisons on specific aspects, such as historical performance or market trends.",
                     "directed": false
                 },
                 "limit": 1
@@ -425,12 +425,12 @@
             "28",
             {
                 "resource": {
-                    "id": "MarketInfoMessageWorker",
-                    "name": "MarketInfoMessageWorker"
+                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
+                    "name": "FaissRAGWorker"
                 },
                 "attribute": {
-                    "value": "",
-                    "task": "Retrieve and present the latest performance data for the selected sectors using the MarketInfoMessageWorker.",
+                    "value": "Here is the detailed information you requested. Do you have any further questions or need assistance with anything else?",
+                    "task": "Provide detailed information based on the user's request and ask if they need further assistance or have specific questions about the stocks.",
                     "directed": false
                 },
                 "limit": 1
@@ -444,8 +444,8 @@
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Would you like to know more about specific stocks within those sectors or any particular metrics?",
-                    "task": "Inquire if the user wants to know more about specific stocks within those sectors or any particular metrics (e.g., price changes, volume, etc.).",
+                    "value": "To summarize, here are the key points from your comparison. Are you ready to make an investment decision or do you need more guidance?",
+                    "task": "Summarize the comparison and confirm if the user is ready to make an investment decision or needs more guidance.",
                     "directed": false
                 },
                 "limit": 1
@@ -455,12 +455,12 @@
             "30",
             {
                 "resource": {
-                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
-                    "name": "FaissRAGWorker"
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "",
-                    "task": "Based on the user's response, provide detailed stock performance data or metrics for the requested stocks or sectors.",
+                    "value": "Which company's historical stock price data are you interested in?",
+                    "task": "Ask the user which company's historical stock price data they are interested in.",
                     "directed": false
                 },
                 "limit": 1
@@ -470,12 +470,207 @@
             "31",
             {
                 "resource": {
+                    "id": "default_worker",
+                    "name": "DefaultWorker"
+                },
+                "attribute": {
+                    "value": "Thank you for your response! Can you please confirm if you meant 'Apple Inc.'?",
+                    "task": "Retrieve the user's response and confirm the company name. If the company is valid, proceed to the next step; if not, ask for clarification.",
+                    "directed": false
+                },
+                "limit": 1
+            }
+        ],
+        [
+            "32",
+            {
+                "resource": {
                     "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
                     "name": "MessageWorker"
                 },
                 "attribute": {
-                    "value": "Do you need additional analysis or insights on other sectors or further assistance with investment guidance?",
-                    "task": "Ask the user if they need additional analysis or insights on other sectors or further assistance with investment guidance.",
+                    "value": "What specific time period are you interested in for the historical stock prices? Last month, last year, or a custom date range?",
+                    "task": "Inquire about the specific time period for which the user wants the historical stock price data (e.g., last month, last year, custom date range).",
+                    "directed": false
+                },
+                "limit": 1
+            }
+        ],
+        [
+            "33",
+            {
+                "resource": {
+                    "id": "9c15af81-04b3-443e-be04-a3522124b905",
+                    "name": "SearchWorker"
+                },
+                "attribute": {
+                    "value": "",
+                    "task": "Based on the user's input, search for the historical stock price data for the specified company and time period.",
+                    "directed": false
+                },
+                "limit": 1
+            }
+        ],
+        [
+            "34",
+            {
+                "resource": {
+                    "id": "MarketInfoMessageWorker",
+                    "name": "MarketInfoMessageWorker"
+                },
+                "attribute": {
+                    "value": "Here is the historical stock price data for Apple Inc. for the last year. Would you like any further analysis or information?",
+                    "task": "Present the historical stock price data to the user and ask if they need any further analysis or information regarding the data provided.",
+                    "directed": false
+                },
+                "limit": 1
+            }
+        ],
+        [
+            "35",
+            {
+                "resource": {
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
+                },
+                "attribute": {
+                    "value": "What specific information are you looking for about mutual funds? Are you interested in top performing funds, categories, or performance metrics?",
+                    "task": "Ask the user what specific information they are looking for regarding mutual funds, such as top performing funds, categories, or performance metrics.",
+                    "directed": false
+                },
+                "limit": 1
+            }
+        ],
+        [
+            "36",
+            {
+                "resource": {
+                    "id": "9c15af81-04b3-443e-be04-a3522124b905",
+                    "name": "SearchWorker"
+                },
+                "attribute": {
+                    "value": "",
+                    "task": "Based on the user's response, retrieve relevant information using the SearchWorker to get real-time data about mutual funds performance.",
+                    "directed": false
+                },
+                "limit": 1
+            }
+        ],
+        [
+            "37",
+            {
+                "resource": {
+                    "id": "MarketInfoMessageWorker",
+                    "name": "MarketInfoMessageWorker"
+                },
+                "attribute": {
+                    "value": "Here are some top performing mutual funds: Fund A, Fund B, and Fund C. They have shown great performance in the last quarter.",
+                    "task": "Provide the user with the requested information, highlighting top performing mutual funds and relevant categories.",
+                    "directed": false
+                },
+                "limit": 1
+            }
+        ],
+        [
+            "38",
+            {
+                "resource": {
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
+                },
+                "attribute": {
+                    "value": "Do you need further details on any specific mutual funds or categories, or do you have any additional questions?",
+                    "task": "Ask the user if they need further details on any specific mutual funds or categories, or if they have any additional questions.",
+                    "directed": false
+                },
+                "limit": 1
+            }
+        ],
+        [
+            "39",
+            {
+                "resource": {
+                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
+                    "name": "FaissRAGWorker"
+                },
+                "attribute": {
+                    "value": "Based on your interest, here are some investment tips for mutual funds: Diversify your portfolio and consider long-term performance trends.",
+                    "task": "Based on the user's follow-up response, provide more detailed information or guidance on mutual funds, including investment tips or insights on trends.",
+                    "directed": false
+                },
+                "limit": 1
+            }
+        ],
+        [
+            "40",
+            {
+                "resource": {
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
+                },
+                "attribute": {
+                    "value": "Are you looking for dividend payout information for specific companies, or would you prefer general information about upcoming dividends?",
+                    "task": "Inquire if the user is looking for specific companies or if they would like general information about upcoming dividend payouts.",
+                    "directed": false
+                },
+                "limit": 1
+            }
+        ],
+        [
+            "41",
+            {
+                "resource": {
+                    "id": "9aa47724-0b77-4752-9528-cf4b06a46915",
+                    "name": "FaissRAGWorker"
+                },
+                "attribute": {
+                    "value": "",
+                    "task": "If the user specifies companies, retrieve the dividend payout information for those companies; if not, conduct a general search for upcoming dividend payouts from companies listed on the PSX.",
+                    "directed": false
+                },
+                "limit": 1
+            }
+        ],
+        [
+            "42",
+            {
+                "resource": {
+                    "id": "MarketInfoMessageWorker",
+                    "name": "MarketInfoMessageWorker"
+                },
+                "attribute": {
+                    "value": "Here are the upcoming dividend payouts: Company A - $1.00 on March 15, Company B - $0.50 on April 10.",
+                    "task": "Present the user with the upcoming dividend payout details, including dates and amounts, in a clear and concise manner.",
+                    "directed": false
+                },
+                "limit": 1
+            }
+        ],
+        [
+            "43",
+            {
+                "resource": {
+                    "id": "26bb6634-3bee-417d-ad75-23269ac17bc3",
+                    "name": "MessageWorker"
+                },
+                "attribute": {
+                    "value": "Would you like more details about any specific company or dividend payout?",
+                    "task": "Ask the user if they would like additional details about any specific company or dividend payout.",
+                    "directed": false
+                },
+                "limit": 1
+            }
+        ],
+        [
+            "44",
+            {
+                "resource": {
+                    "id": "default_worker",
+                    "name": "DefaultWorker"
+                },
+                "attribute": {
+                    "value": "If you have any other financial inquiries or need information about investments related to the PSX, I'm here to help!",
+                    "task": "Offer to assist further with any other financial inquiries or information regarding investments related to the PSX.",
                     "directed": false
                 },
                 "limit": 1
@@ -487,10 +682,62 @@
             "0",
             "1",
             {
-                "intent": "User wants to know current stock prices",
+                "intent": "User wants current stock prices",
                 "attribute": {
                     "weight": 1,
                     "pred": true,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "1",
+            "2",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "2",
+            "3",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "3",
+            "4",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "4",
+            "5",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
                     "definition": "",
                     "sample_utterances": []
                 }
@@ -498,77 +745,25 @@
         ],
         [
             "0",
-            "2",
-            {
-                "intent": "User seeks information on market trends",
-                "attribute": {
-                    "weight": 1,
-                    "pred": true,
-                    "definition": "",
-                    "sample_utterances": []
-                }
-            }
-        ],
-        [
-            "2",
-            "3",
-            {
-                "intent": "None",
-                "attribute": {
-                    "weight": 1,
-                    "pred": false,
-                    "definition": "",
-                    "sample_utterances": []
-                }
-            }
-        ],
-        [
-            "3",
-            "4",
-            {
-                "intent": "None",
-                "attribute": {
-                    "weight": 1,
-                    "pred": false,
-                    "definition": "",
-                    "sample_utterances": []
-                }
-            }
-        ],
-        [
-            "4",
-            "5",
-            {
-                "intent": "None",
-                "attribute": {
-                    "weight": 1,
-                    "pred": false,
-                    "definition": "",
-                    "sample_utterances": []
-                }
-            }
-        ],
-        [
-            "5",
             "6",
             {
-                "intent": "None",
+                "intent": "User seeks market trends and analysis",
                 "attribute": {
                     "weight": 1,
-                    "pred": false,
+                    "pred": true,
                     "definition": "",
                     "sample_utterances": []
                 }
             }
         ],
         [
-            "0",
+            "6",
             "7",
             {
-                "intent": "User requests detailed company information",
+                "intent": "None",
                 "attribute": {
                     "weight": 1,
-                    "pred": true,
+                    "pred": false,
                     "definition": "",
                     "sample_utterances": []
                 }
@@ -627,26 +822,26 @@
             }
         ],
         [
-            "0",
+            "11",
             "12",
             {
-                "intent": "User asks for investment guidance",
+                "intent": "None",
                 "attribute": {
                     "weight": 1,
-                    "pred": true,
+                    "pred": false,
                     "definition": "",
                     "sample_utterances": []
                 }
             }
         ],
         [
-            "12",
+            "0",
             "13",
             {
-                "intent": "None",
+                "intent": "User requests company information",
                 "attribute": {
                     "weight": 1,
-                    "pred": false,
+                    "pred": true,
                     "definition": "",
                     "sample_utterances": []
                 }
@@ -692,26 +887,26 @@
             }
         ],
         [
-            "0",
+            "16",
             "17",
             {
-                "intent": "User wants to track portfolio performance",
+                "intent": "None",
                 "attribute": {
                     "weight": 1,
-                    "pred": true,
+                    "pred": false,
                     "definition": "",
                     "sample_utterances": []
                 }
             }
         ],
         [
-            "17",
+            "0",
             "18",
             {
-                "intent": "None",
+                "intent": "User wants investment guidance",
                 "attribute": {
                     "weight": 1,
-                    "pred": false,
+                    "pred": true,
                     "definition": "",
                     "sample_utterances": []
                 }
@@ -757,52 +952,52 @@
             }
         ],
         [
-            "0",
+            "21",
             "22",
             {
-                "intent": "User seeks historical stock data",
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "22",
+            "23",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "23",
+            "24",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "0",
+            "25",
+            {
+                "intent": "User wants to compare stocks",
                 "attribute": {
                     "weight": 1,
                     "pred": true,
-                    "definition": "",
-                    "sample_utterances": []
-                }
-            }
-        ],
-        [
-            "22",
-            "23",
-            {
-                "intent": "None",
-                "attribute": {
-                    "weight": 1,
-                    "pred": false,
-                    "definition": "",
-                    "sample_utterances": []
-                }
-            }
-        ],
-        [
-            "23",
-            "24",
-            {
-                "intent": "None",
-                "attribute": {
-                    "weight": 1,
-                    "pred": false,
-                    "definition": "",
-                    "sample_utterances": []
-                }
-            }
-        ],
-        [
-            "24",
-            "25",
-            {
-                "intent": "None",
-                "attribute": {
-                    "weight": 1,
-                    "pred": false,
                     "definition": "",
                     "sample_utterances": []
                 }
@@ -822,10 +1017,49 @@
             }
         ],
         [
-            "0",
+            "26",
             "27",
             {
-                "intent": "User is interested in sector performance",
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "27",
+            "28",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "28",
+            "29",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "0",
+            "30",
+            {
+                "intent": "User seeks historical data access",
                 "attribute": {
                     "weight": 1,
                     "pred": true,
@@ -835,47 +1069,177 @@
             }
         ],
         [
-            "27",
-            "28",
-            {
-                "intent": "None",
-                "attribute": {
-                    "weight": 1,
-                    "pred": false,
-                    "definition": "",
-                    "sample_utterances": []
-                }
-            }
-        ],
-        [
-            "28",
-            "29",
-            {
-                "intent": "None",
-                "attribute": {
-                    "weight": 1,
-                    "pred": false,
-                    "definition": "",
-                    "sample_utterances": []
-                }
-            }
-        ],
-        [
-            "29",
-            "30",
-            {
-                "intent": "None",
-                "attribute": {
-                    "weight": 1,
-                    "pred": false,
-                    "definition": "",
-                    "sample_utterances": []
-                }
-            }
-        ],
-        [
             "30",
             "31",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "31",
+            "32",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "32",
+            "33",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "33",
+            "34",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "0",
+            "35",
+            {
+                "intent": "User wants to track fund performance",
+                "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "35",
+            "36",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "36",
+            "37",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "37",
+            "38",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "38",
+            "39",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "0",
+            "40",
+            {
+                "intent": "User seeks dividend information",
+                "attribute": {
+                    "weight": 1,
+                    "pred": true,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "40",
+            "41",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "41",
+            "42",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "42",
+            "43",
+            {
+                "intent": "None",
+                "attribute": {
+                    "weight": 1,
+                    "pred": false,
+                    "definition": "",
+                    "sample_utterances": []
+                }
+            }
+        ],
+        [
+            "43",
+            "44",
             {
                 "intent": "None",
                 "attribute": {
@@ -895,13 +1259,13 @@
     "task_docs": [
         {
             "source": "https://sarmaaya.pk/",
-            "num": 20
+            "num": 2
         }
     ],
     "rag_docs": [
         {
-            "source": "https://dps.psx.com.pk/",
-            "num": 20
+            "source": "https://sarmaaya.pk/psx/",
+            "num": 2
         }
     ],
     "tasks": [],

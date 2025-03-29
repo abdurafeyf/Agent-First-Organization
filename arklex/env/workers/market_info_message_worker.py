@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 @register_worker
 class MarketInfoMessageWorker(MessageWorker):
 
-    description = "The worker that used to deliver the message to the user, either a question or provide some information after retrieving it from Google."
+    description = "This worker retrieves market information from google and provides it to the user. The market information includes information related to stocks, companies, and indices."
 
     def __init__(self):
         super().__init__()

@@ -7,13 +7,13 @@
     "task_docs": [
         {
             "source": "https://sarmaaya.pk/",
-            "num": 20
+            "num": 2
         }
     ],
     "rag_docs": [
         {
-            "source": "https://dps.psx.com.pk/",
-            "num": 20
+            "source": "https://sarmaaya.pk/psx/",
+            "num": 2
         }
     ],
     "tasks": [],
