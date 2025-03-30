@@ -12,7 +12,7 @@
 
 3. `streamlit run streamlit_app.py`
 
-![Streamlit App Screenshot](.assets/streamlit.png)
+![Streamlit App Screenshot](./examples/financial_service_pak/assets/streamlit.png)
 
 ```
 financial_service_pak/
@@ -57,7 +57,7 @@ financial_service_pak/
    ```
    - Access the local dev server (usually at [http://localhost:5173](http://localhost:5173)).
 
-![Financeanalyzer Web App Screenshot](.assets/web.png)
+![Financeanalyzer Web App Screenshot](./examples/financial_service_pak/assets/web.png)
 
 ### 2. AI Orchestration with Arklex
 
