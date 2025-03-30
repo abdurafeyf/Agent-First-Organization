@@ -19,7 +19,7 @@
         "task_name": "Provide company information from Pakistan Stock Exchange (PSX)",
         "steps": [
             "Ask the user which specific company they would like information about or if they are looking for general market trends.",
-            "If a specific company is mentioned, retrieve the relevant market information about that company, including stock prices, recent performance, and any important news.",
+            "If a specific company is mentioned, retrieve the relevant market information about that company using the MarketInfoMessageWorker, including stock prices, recent performance, and any important news.",
             "If the user inquired about general market trends, provide an overview of the current market conditions, highlighting key indices and overall market performance.",
             "Ask the user if they need further details about the company or market trends, or if they have any other specific questions regarding investments.",
             "Provide additional information or guidance based on the user\u2019s follow-up questions, such as investment advice, historical data, or upcoming events related to the stock."
@@ -49,7 +49,7 @@
         "task_name": "Provide information on mutual funds and related services",
         "steps": [
             "Ask the user what specific information they are looking for regarding mutual funds (e.g., types of mutual funds, performance, fees, investment strategies).",
-            "Based on the user's response, retrieve relevant information from the DefaultWorker to provide a detailed explanation of the requested mutual fund information.",
+            "Based on the user's response, retrieve relevant information from the MarketInfoMessageWorker to provide a detailed explanation of the requested mutual fund information.",
             "Inquire if the user would like to know about specific mutual fund options or if they need guidance on how to invest in mutual funds.",
             "If the user has specific mutual funds in mind, provide detailed information on those funds, including performance history, risks, and fees.",
             "Confirm if the user needs assistance with anything else related to mutual funds or other investment services."
@@ -59,7 +59,7 @@
         "task_name": "Provide access to financial tools and calculators",
         "steps": [
             "Greet the user and ask if they are looking for specific financial tools or calculators related to the Pakistan Stock Market.",
-            "Based on the user's response, provide a brief overview of available financial tools and calculators, such as stock price calculators, investment return calculators, or market trend analysis tools.",
+            "Based on the user's response, provide a brief overview of available financial tools and calculators using MarketInfoMessageWorker, such as stock price calculators, investment return calculators, or market trend analysis tools.",
             "Ask the user if they have a particular tool in mind that they would like to use or if they need recommendations based on their financial goals.",
             "If the user has a specific tool in mind, guide them through the usage of that tool, or if they need recommendations, suggest relevant tools that suit their needs.",
             "Confirm if the user needs further assistance with the tools or if they have any other questions regarding the Pakistan Stock Market."
@@ -68,7 +68,7 @@
     {
         "task_name": "Provide information on upcoming company announcements",
         "steps": [
-            "Provide information on upcoming company announcements"
+            "Provide information on upcoming company announcements using MarketInfoMessageWorker"
         ]
     }
 ]

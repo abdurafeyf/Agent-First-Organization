@@ -66,10 +66,12 @@ signal.signal(signal.SIGTERM, lambda signum, frame: exit(0))
 
 def get_api_bot_response(args, history, user_text, parameters, env):
     data = {"text": user_text, 'chat_history': history, 'parameters': parameters}
+    print("RAFEY HERE:", args.input_dir)
+    print("RAFEY HERE:", os.path.join(args.input_dir, "taskgraph.json"))
     orchestrator = AgentOrg(config=os.path.join(args.input_dir, "taskgraph.json"), env=env)
     result = orchestrator.get_response(data)
 
-    return result['answer'], result['parameters']
+    return result['answer'], result['parameters'], result['human-in-the-loop']
 
 
 def start_apis():
@@ -108,7 +110,7 @@ def predict(data: Dict):
         workers = workers,
         slotsfillapi = SLOTFILLAPI_ADDR
     )
-    answer, params = get_api_bot_response(args, history[:-1], user_text, params, env)
+    answer, params, hitl = get_api_bot_response(args, history[:-1], user_text, params, env)
     return {"answer": answer, "parameters": params}
 
 
@@ -116,13 +118,15 @@ def predict(data: Dict):
 def chat_endpoint(data: Dict):
     """
     A simple chat endpoint that accepts a JSON payload with:
-      - "text": the current user message (optional if history is provided)
-      - "history": optional list of messages (each a dict with at least a "content" field)
-      - "parameters": optional parameters dictionary
-      - "tools": optional list for the Env
-      - "workers": optional list for the Env
+      - "history": List of previous chat messages.
+      - "parameters": Any parameters needed for the conversation.
+      - "workers": Worker configurations.
+      - "tools": Available tools.
+
+    Returns a JSON object with:
+      - "answer": The response from the model.
+      - "parameters": Updated parameters.
     """
-    # If a 'text' field is provided, use it; otherwise try to extract from history.
     if "text" in data:
         user_text = data["text"]
         history = data.get("history", [])
@@ -134,19 +138,20 @@ def chat_endpoint(data: Dict):
             return Response(
                 content="No user message provided", status_code=HTTPStatus.BAD_REQUEST
             )
-
-    parameters = data.get("parameters", {})
-    tools = data.get("tools", [])
+    
+    params = data.get("parameters", {})
     workers = data.get("workers", [])
+    tools = data.get("tools", [])
 
     env = Env(
         tools=tools,
         workers=workers,
         slotsfillapi=SLOTFILLAPI_ADDR
     )
-    # Use the full history if needed (or adjust if you want to trim it)
-    answer, parameters = get_api_bot_response(args, history, user_text, parameters, env)
-    return {"answer": answer, "parameters": parameters}
+
+    answer, params, hitl = get_api_bot_response(args, history, user_text, params, env)
+    return {"answer": answer, "parameters": params}
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Start FastAPI with custom config.")

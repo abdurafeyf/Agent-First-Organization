@@ -1,123 +1,102 @@
-<p align="left">
-  <img src="https://raw.githubusercontent.com/arklexai/Agent-First-Organization/main/assets/static/img/arklexai.png" alt="Package Logo" style="vertical-align: middle; margin-right: 10px;">
-</p>
+# Financial Service PAK
 
-![Release](https://img.shields.io/github/release/arklexai/Agent-First-Organization?logo=github)
-[![PyPI version](https://img.shields.io/pypi/v/arklex.svg)](https://pypi.org/project/arklex)
-![Python version](https://img.shields.io/pypi/pyversions/arklex)
+**Financial Service PAK** is a concise, modular setup using [Arklex AI](https://www.arklex.ai/qa/open-source) to build and deploy an **AI-powered financial assistant**.
 
-Arklex Agent First Organization provides a framework for developing **AI Agents** to complete complex tasks powered by LLMs. The framework is designed to be modular and extensible, allowing developers to customize workers/tools that can interact with each other in a variety of ways under the supervision of the orchestrator managed by *Taskgraph*. 
+---
 
-## 📖 Documentation
+## To Have with this Agent, you can simple follow the steps:
 
-Please see [here](https://www.arklex.ai/qa/open-source) for full documentation, which includes:
-* [Introduction](https://arklexai.github.io/Agent-First-Organization/docs/intro): Overview of the Arklex AI agent framework and structure of the docs.
-* [Tutorials](https://arklexai.github.io/Agent-First-Organization/docs/tutorials/intro): If you're looking to build a customer service agent or booking service bot, check out our tutorials. This is the best place to get started. 
+1. `git clone https://github.com/abdurafeyf/Agent-First-Organization.git`
 
+2. `pip install requirements.txt`
 
-## 💻 Installation 
-```
-pip install arklex
-```
+3. `streamlit run streamlit_app.py`
 
-## 🛠️ Build A Demo Customer Service Agent
-
-Watch the tutorial on [YouTube](https://youtu.be/y1P2Ethvy0I) to learn how to build a customer service AI agent with Arklex.AI in just 20 minutes.
-
-<a href="https://youtu.be/y1P2Ethvy0I" target="_blank">
-  <img src="https://raw.githubusercontent.com/arklexai/Agent-First-Organization/main/assets/static/img/youtube_screenshot.png" alt="Build a customer service AI agent with Arklex.AI in 20 min" width="400">
-</a>
-
-***
-
-
-**⚙️ 0. Preparation**
-
-* 📂 Environment Setup
-
-  *	Add API keys to the `.env` file for providers like OpenAI, Gemini, Anthropic, and Tavily.
-
-  *	Enable LangSmith tracing (LANGCHAIN_TRACING_V2=true) for debugging (optional).
-
-* 📄 Configuration File
-
-  *	Create a chatbot config file similar to `financial_service_config.json`.
-
-  *	Define chatbot parameters, including role, objectives, domain, introduction, and relevant documents.
-
-  *	Specify tasks, workers, and tools to enhance chatbot functionality.
-
-*	Workers and tools should be pre-defined in arklex/env/workers and arklex/env/tools, respectively.
-
-
-**📊 1. Create Taskgraph and Initialize Worker**
-
-> **:bulb:** The following `--output-dir`, `--input-dir` and `--documents_dir` can be the same directory to save the generated files and the chatbot will use the generated files to run. E.g `--output-dir ./example/financial_service`. The following commands take *financial_service* chatbot as an example.
+![Streamlit App Screenshot](.assets/streamlit.png)
 
 ```
-python create.py --config ./examples/financial_service_config.json --output-dir ./examples/financial_service --model gpt-4o-mini
+financial_service_pak/
+├── eval/                # Evaluation
+├── financeanalyzer/     # Web frontend (Node.js + Vite)
+├── .bolt/
+├── node_modules/
+├── src/                 # Additional source or integration scripts
+├── supabase/            # Supabase integration/config
+├── .env                 # Backend environment variables (API keys, etc.)
+├── package.json
+├── taskgraph.json
+└── ...
 ```
 
-* Fields:
-  * `--config`: The path to the config file
-  * `--output-dir`: The directory to save the generated files
-  * `--model`: The openai model type used to generate the taskgraph. The default is `gpt-4o`. You could change it to other models like `gpt-4o-mini`.
+### Main Files
+- **`.env`**: Backend environment variables (e.g., `OPENAI_API_KEY`).  
+- **`financeanalyzer/.env`**: Frontend environment variables, including Supabase and OpenAI keys:
+  ```bash
+  VITE_SUPABASE_ANON_KEY=...
+  VITE_SUPABASE_URL=...
+  VITE_OPENAI_API_KEY=...
+  ```
+- **`taskgraph.json`, `taskplanning.json`**: Define tasks and agent planning for Arklex.
 
-* It will first generate a task plan based on the config file and you could modify it in an interactive way from the command line. Made the necessary changes and press `s` to save the task plan under `output-dir` folder and continue the task graph generation process.
-* Then it will generate the task graph based on the task plan and save it under `output-dir` folder as well.
-* It will also initialize the Workers listed in the config file to prepare the documents needed by each worker. The function `init_worker(args)` is customizable based on the workers you defined. Currently, it will automatically build the `RAGWorker` and the `DataBaseWorker` by using the function `build_rag()` and `build_database()` respectively. The needed documents will be saved under the `output-dir` folder.
+---
 
+## Quick Start
 
-**💬 2. Start Chatting**
-```
-python run.py --input-dir ./examples/financial_service --model gpt-4o-mini
-```
+### 1. Frontend Setup (Financeanalyzer)
 
-* Fields:
-  * `--input-dir`: The directory that contains the generated files
-  * `--llm_provider`: The LLM provider you wish to use. 
-    - Options: `openai` (default), `gemini`, `anthropic`
-  * `--model`: The model type used to generate bot response. Default is `gpt-4o`. 
-    - You can change this to other models like:
-      - `gpt-4o-mini`
-      - `gemini-2.0-flash-exp`
-      - `claude-3-haiku-20240307`
-  
+1. **Install Dependencies**  
+   ```bash
+   cd financeanalyzer
+   npm install
+   ```
+2. **Configure .env**  
+   - Copy the provided keys into `financeanalyzer/.env`.
+3. **Run the Web App**  
+   ```bash
+   npm run dev
+   ```
+   - Access the local dev server (usually at [http://localhost:5173](http://localhost:5173)).
 
-* It will first automatically start the nluapi and slotapi services through `start_apis()` function. By default, this will start the `NLUModelAPI ` and `SlotFillModelAPI` services defined under `./arklex/orchestrator/NLU/api.py` file. You could customize the function based on the nlu and slot models you trained.
-* Then it will start the agent and you could chat with the agent
+![Financeanalyzer Web App Screenshot](.assets/web.png)
 
+### 2. AI Orchestration with Arklex
 
+1. **Install Arklex**  
+   ```bash
+   pip install arklex
+   ```
+2. **Generate Taskgraph & Workers**  
+   ```bash
+   python create.py \
+     --config ./financial_service_config.json \
+     --output-dir ./financial_service_pak
+     --model gpt-4o-mini
+   ```
+   - Edit the task plan interactively if needed, then save.
+3. **Run the Agent**  
+   ```bash
+   python run.py --input-dir ./financial_service_pak --model gpt-4o-mini
+   ```
+   - Chat with the financial assistant in your console or via the integrated API.
 
-**🔍 3. Evaluation**
+### 3. Evaluation (Optional)
 
-  * First, create api for the previous chatbot you built. It will start an api on the default port 8000.
-    ```
-    python model_api.py  --input-dir ./examples/financial_service --model gpt-4o-mini
-    ```
+1. **Create API**  
+   ```bash
+   python model_api.py --input-dir ./financial_service_pak ----model gpt-4o-mini
+   ```
+2. **Simulate Conversations**  
+   ```bash
+   python eval.py \
+     --model_api http://127.0.0.1:8000/eval/chat \
+     --config ./financial_service_config.json \
+     --documents_dir ./financial_service_pak \
+     --output-dir ./financial_service_pak
+     --model gpt-4o-mini
+   ```
 
-    * Fields:
-      * `--input-dir`: The directory that contains the generated files
-      * `--model`: The openai model type used to generate bot response. Default is `gpt-4o`. You could change it to other models like `gpt-4o-mini`.
-      * `--port`: The port number to start the api. Default is 8000.
+---
 
-  * Then, start the evaluation process: 
-    ```
-    python eval.py \
-    --model_api http://127.0.0.1:8000/eval/chat \
-    --config ./examples/financial_service_config.json \
-    --documents_dir ./examples/financial_service \
-    --output-dir ./examples/financial_service \
-    --model gpt-4o-mini
-    ```
-    * Fields:
-      * `--model_api`: The api url that you created in the previous step
-      * `--config`: The path to the config file
-      * `--documents_dir`: The directory that contains the generated files
-      * `--output-dir`: The directory to save the evaluation results
-      * `--num_convos`: Number of synthetic conversations to simulate. Default is 5.
-      * `--num_goals`: Number of goals/tasks to simulate. Default is 5.
-      * `--max_turns`: Maximum number of turns per conversation. Default is 5.
-      * `--model`: The openai model type used to synthesize user's utterance. Default is `gpt-4o`. You could change it to other models like `gpt-4o-mini`.
-  
-    📄 For more details, check out the [Evaluation README](https://github.com/arklexai/Agent-First-Organization/blob/main/arklex/evaluation/README.md).
+## Contributing
+
+Feel free to open issues or PRs to enhance **Financial Service PAK**—whether it’s refining the frontend, adding new workers/tools, or extending it.
